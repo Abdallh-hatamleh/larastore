@@ -83,6 +83,6 @@ class ProductController extends Controller
     {
         //
         $product->delete();
-        return view('/p');
+        return redirect('/p');
     }
 }

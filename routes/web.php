@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[function() {
-    return redirect('/p');
+    return view('welcome');
 }]);
 Route::get('/p', [ProductController::class, 'index']);
 Route::get('/p/{product}', [ProductController::class, 'show']);
@@ -22,6 +23,13 @@ Route::delete('/p/{product}', [ProductController::class, 'destroy']);
 Route::patch('/p/{product}', [ProductController::class, 'edit']);
 Route::put('/p/{product}', [ProductController::class, 'update']);
 Route::post('/p', [ProductController::class, 'store']);
-Route::get('/add', [ProductController::class, 'create']);
+Route::get('/add/p', [ProductController::class, 'create']);
+Route::get('/c', [CategoryController::class, 'index']);
+Route::get('/c/{category}', [CategoryController::class, 'show']);
+Route::delete('/c/{category}', [CategoryController::class, 'destroy']);
+Route::patch('/c/{category}', [CategoryController::class, 'edit']);
+Route::put('/c/{category}', [CategoryController::class, 'update']);
+Route::post('/c', [CategoryController::class, 'store']);
+Route::get('/add/c', [CategoryController::class, 'create']);
 
 
